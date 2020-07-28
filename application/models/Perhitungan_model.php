@@ -18,7 +18,6 @@ class Perhitungan_model extends CI_model
 		$gejala = implode(",", $temp);
 
 		$data["listGejala"] = $this->gejala->getListById($gejala);
-		//hitung
 		$listKerusakan = $this->rule->getByGejala($gejala);
 		$kerusakan = array();
 		$i = 0;
