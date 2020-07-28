@@ -27,7 +27,7 @@
 			<div class="col-lg-5 col-md-7 bg-white">
 				<div class="p-3">
 					<h2 class="mt-3 text-center">Jawab Pertanyaan Ini</h2>
-					<p class="text-center">Sistem Pakar Diagnosa Kerusakan Motor Injeksi Matic</p>
+					<p class="text-center">Sistem Pakar Diagnosa Kerusakan Motor Injeksi</p>
 					<div class="row d-flex justify-content-center">
 						<div class="col-md-12 col-md-offset-2">
 							<form action="<?= base_url('diagnosa/temp') ?>" method="POST">

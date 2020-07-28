@@ -12,7 +12,7 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		if ($this->session->userdata('username')) {
-			redirect('admin');
+			redirect('kerusakan');
 		}
 
 		$data['title'] = 'Sistem Pakar Diagnosa Kerusakan Motor Injeksi Matic';

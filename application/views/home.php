@@ -42,7 +42,7 @@
 			<div class="col-lg-5 col-md-7 bg-white">
 				<div class="p-3">
 					<h2 class="mt-3 text-center">Selamat Datang</h2>
-					<p class="text-center">Sistem Pakar Diagnosa Kerusakan Motor Injeksi Matic</p>
+					<p class="text-center">Sistem Pakar Diagnosa Kerusakan Motor Injeksi</p>
 					<form class="mt-4">
 						<div class="row">
 							<div class="col-lg-12 text-center">
