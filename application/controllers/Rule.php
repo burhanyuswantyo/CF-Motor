@@ -14,7 +14,7 @@ class Rule extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Data Rule';
-		$data['rule'] = $this->rule->getAllRule();
+		$data['rule'] = $this->rule->getRule();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar');
@@ -27,7 +27,6 @@ class Rule extends CI_Controller
 	{
 		$data['title'] = 'Tambah Data Rule';
 		$data['gejala'] = $this->gejala->getGejala();
-		$data['rule'] = $this->rule->getRule();
 		$data['kerusakan'] = $this->kerusakan->getKerusakan();
 
 		$this->load->view('templates/header', $data);
@@ -42,7 +41,8 @@ class Rule extends CI_Controller
 		$data['title'] = 'Ubah Data Rule';
 		$data['gejala'] = $this->gejala->getGejala();
 		$data['kerusakan'] = $this->kerusakan->getKerusakan();
-		$data['rule'] = $this->rule->getAllRuleId($id);
+		$data['rule'] = $this->rule->getById($id);
+		$data['select'] = $this->rule->getSelected($id);
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/topbar');

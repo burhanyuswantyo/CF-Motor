@@ -6,6 +6,11 @@
 					<div class="col-7 align-self-center">
 						<h4 class="page-title text-truncate text-dark font-weight-medium mb-1"><?= $title ?></h4>
 					</div>
+					<div class="col-5 align-self-center">
+						<div class="customize-input float-right">
+							<a href="<?= base_url('rule/tambah') ?>" class="btn btn-primary"><span><i class="fa fa-plus"></i> Tambah</span></a>
+						</div>
+					</div>
 				</div>
 				<?php echo $this->session->flashdata('message'); ?>
 				<div class="table-responsive">
@@ -13,8 +18,8 @@
 						<thead class="bg-danger text-white">
 							<tr>
 								<th class="text-center">No</th>
-								<th class="text-center">Gejala</th>
 								<th class="text-center">Kerusakan</th>
+								<th class="text-center">Gejala</th>
 								<th class="text-center">MD</th>
 								<th class="text-center">MB</th>
 								<th class="text-center">Aksi</th>
@@ -25,8 +30,8 @@
 							<?php foreach ($rule as $r) : ?>
 								<tr>
 									<td class="text-center align-middle"><?= $i ?></td>
-									<td class="align-middle"><?= $r['gejala'] ?></td>
 									<td class="align-middle"><?= $r['kerusakan'] ?></td>
+									<td class="align-middle"><?= $r['gejala'] ?></td>
 									<td class="text-center align-middle"><?= $r['md'] ?></td>
 									<td class="text-center align-middle"><?= $r['mb'] ?></td>
 									<td class="text-center align-middle">

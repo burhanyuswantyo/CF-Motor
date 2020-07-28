@@ -39,21 +39,17 @@
 										</td>
 										<td class="text-center">
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gejala" id="gejala" value="<?= $gejala['id'] ?>" <?= $ya ?> required>
+												<input class="form-check-input" type="radio" name="gejala" id="gejala" value="<?= $gejala['id'] ?>" <?= $ya ?>>
 												<label class="form-check-label" for="gejala">Ya</label>
 											</div>
 											<div class="form-check form-check-inline">
-												<input class="form-check-input" type="radio" name="gejala" id="gejala" value="0" <?= $tidak ?> required>
+												<input class="form-check-input" type="radio" name="gejala" id="gejala" value="0" <?= $tidak ?>>
 												<label class="form-check-label" for="gejala">Tidak</label>
 											</div>
 										</td>
 									</tr>
 								</table>
-								<?php if ($finish) { ?>
-									<button type="submit" name="submit" class="btn btn-block btn-primary">Selesai</button>
-								<?php } else { ?>
-									<button type="submit" name="submit" class="btn btn-block btn-primary">Lanjut</button>
-								<?php } ?>
+								<button type="submit" name="submit" class="btn btn-block btn-primary">Lanjut</button>
 								<a href="<?= base_url('diagnosa/' . ($id - 1)) ?>" class="btn btn-block btn-success">Kembali</a>
 
 						</div>

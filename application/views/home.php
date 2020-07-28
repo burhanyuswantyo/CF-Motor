@@ -46,11 +46,11 @@
 					<form class="mt-4">
 						<div class="row">
 							<div class="col-lg-12 text-center">
-								<a href="<?= base_url('welcome/daftar_kerusakan') ?>" class="btn btn-block btn-success">Daftar Kerusakan</a>
+								<!-- <a href="<?= base_url('welcome/daftar_kerusakan') ?>" class="btn btn-block btn-success">Daftar Kerusakan</a> -->
 
 								<br>
 
-								<a href="<?= base_url('diagnosa') ?>" class=" btn btn-block btn-dark">Mulai Diagnosa</a>
+								<a href="<?= base_url('diagnosa') ?>" class="btn btn-block btn-success">Mulai Diagnosa</a>
 							</div>
 
 

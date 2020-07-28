@@ -2,16 +2,27 @@
 
 class Rule_model extends CI_model
 {
-	public function getNilaiCf($limit, $start = 0, $q = null)
+	public function getNilaiCf()
 	{
 		return $this->db->select('*, rule.id AS rule_id ')
 			->from('rule')
 			->join('gejala', 'gejala.id = rule.gejala_id ')
 			->join('kerusakan', 'kerusakan.id = rule.kerusakan_id ')
 			->order_by('rule.id', 'DESC')
-			->limit($limit, $start)
 			->get()
 			->result_array();
+	}
+
+	public function getRule()
+	{
+		$query = "SELECT `rule`.`id`, `kerusakan`.`kerusakan`, `gejala`.`gejala`, `rule`.`mb`, `rule`.`md`
+					FROM `kerusakan`
+					JOIN `rule`
+					ON `kerusakan`.`id` = `rule`.`kerusakan_id`
+					JOIN `gejala`
+					ON `rule`.`gejala_id` = `gejala`.`id`";
+
+		return $this->db->query($query)->result_array();
 	}
 
 	public function insert()
@@ -96,9 +107,17 @@ class Rule_model extends CI_model
 		return $this->db->query($query);
 	}
 
-	function getgejala()
+	function getSelected($id)
 	{
-		return $this->db->get('gejala');
+		$query = "SELECT `kerusakan`.`id` AS 'id_kerusakan', `kerusakan`.`kode` AS 'kode_kerusakan', `kerusakan`.`kerusakan`, `gejala`.`id` AS 'id_gejala', `gejala`.`kode` AS 'kode_gejala', `gejala`.`gejala`
+					FROM `kerusakan`
+					JOIN `rule`
+					ON `kerusakan`.`id` = `rule`.`kerusakan_id`
+					JOIN `gejala`
+					ON `rule`.`gejala_id` = `gejala`.`id`
+					WHERE `rule`.`id` = '$id'";
+
+		return $this->db->query($query)->row_array();
 	}
 
 	function getkerusakan()

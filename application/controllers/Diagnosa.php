@@ -16,9 +16,7 @@ class Diagnosa extends CI_Controller
 		$data['gejala'] = $this->gejala->getGejalaId($id);
 
 		if ($this->db->get('temp')->num_rows() == $this->gejala->count()) {
-			$data['finish'] = true;
-		} else {
-			$data['finish'] = false;
+			redirect('diagnosa/hasil');
 		}
 
 		$check = $this->db->get_where('temp', ['gejala_id' => $id])->row_array();
@@ -45,24 +43,26 @@ class Diagnosa extends CI_Controller
 
 		$check = $this->db->get_where('temp', ['gejala_id' => $id])->row_array();
 
+		if ($this->input->post('gejala') == null) {
+			$value = 0;
+		} else {
+			$value = $this->input->post('gejala');
+		}
+
 		$temp = [
 			'gejala_id' => $id,
-			'value' => $this->input->post('gejala')
+			'value' => $value
 		];
 
 		if ($this->gejala->count() == $this->db->get('temp')->num_rows()) {
 			redirect('diagnosa/hasil');
 		} else {
-			if ($id >= $this->gejala->count()) {
-				echo 'diisi semua';
+			if ($check['gejala_id'] == $id) {
+				$this->db->update('temp', $temp, ['gejala_id' => $id]);
+				redirect('diagnosa/' . ($id + 1));
 			} else {
-				if ($check['gejala_id'] == $id) {
-					$this->db->update('temp', $temp, ['gejala_id' => $id]);
-					redirect('diagnosa/' . ($id + 1));
-				} else {
-					$this->db->insert('temp', $temp);
-					redirect('diagnosa/' . ($id + 1));
-				}
+				$this->db->insert('temp', $temp);
+				redirect('diagnosa/' . ($id + 1));
 			}
 		}
 	}

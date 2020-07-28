@@ -10,16 +10,34 @@
 		<div class="card">
 			<div class="card-body">
 				<form class="mt-4" action="<?= base_url('rule/update/') . $rule['id'] ?>" method="POST">
-					<h5 class="card-title">MD</h5>
-					<div class="form-group">
-						<input type="text" class="form-control" name="md" id="md" value="<?= $rule['md']; ?>" required oninvalid="this.setCustomValidity('Gejala tidak boleh kosong')" oninput="setCustomValidity('')">
+					<h5 class="card-title">Gejala</h5>
+					<div class="form-group mb-4">
+						<select class="form-control col-sm-4" name="gejala_id">
+							<option value="<?= $select['id_gejala'] ?>" hidden><?= $select['kode_gejala'] . ' - ' . $select['gejala'] ?></option>
+							<option value="">Pilih Gejala</option>
+							<?php foreach ($gejala as $g) : ?>
+								<option value="<?= $g['id'] ?>"><?= $g['kode'] . ' - ' . $g['gejala'] ?></option>
+							<?php endforeach; ?>
+						</select>
 					</div>
-
+					<h5 class="card-title">Kerusakan</h5>
+					<div class="form-group mb-4">
+						<select class="form-control col-sm-4" name="gejala_parent">
+							<option value="<?= $select['id_kerusakan'] ?>" hidden><?= $select['kode_kerusakan'] . ' - ' . $select['kerusakan'] ?></option>
+							<option value="">Pilih Kerusakan</option>
+							<?php foreach ($kerusakan as $k) : ?>
+								<option value="<?= $k['id'] ?>"><?= $k['kode'] . ' - ' . $k['kerusakan'] ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
 					<h5 class="card-title">MB</h5>
 					<div class="form-group">
-						<input type="text" class="form-control" name="mb" id="mb" value="<?= $rule['mb']; ?>" required oninvalid="this.setCustomValidity('Gejala tidak boleh kosong')" oninput="setCustomValidity('')">
+						<input type="text" class="form-control col-sm-4" name="mb" id="mb" value="<?= $rule['mb'] ?>" required oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')">
 					</div>
-
+					<h5 class="card-title">MD</h5>
+					<div class="form-group">
+						<input type="text" class="form-control col-sm-4" name="md" id="md" value="<?= $rule['md'] ?>" required oninvalid="this.setCustomValidity('Tidak boleh kosong')" oninput="setCustomValidity('')">
+					</div>
 					<div class="float-right">
 						<button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Simpan</button>
 					</div>
